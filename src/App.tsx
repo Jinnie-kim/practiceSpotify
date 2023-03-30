@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SpotifyGetPlaylists from './components/SpotifyGetPlaylist/SpotifyGetPlaylist';
 
 function App() {
+  const [isLogged, SetIsLogged] = useState<boolean>(false);
   const CLIENT_ID = '30555305475a40f79339071201722545';
   const SPOTFY_AUTHORIZE_ENDPOINT = 'https://accounts.spotify.com/authorize'; // base url
   const REDIRECT_URL_AFTER_LOGIN = 'http://127.0.0.1:5174/';
@@ -33,6 +34,7 @@ function App() {
       accumulater[key] = value;
       return accumulater;
     }, init);
+    SetIsLogged(true);
     return paramsSplitUp;
   };
 
@@ -52,7 +54,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>this is spotify</h1>
+      <h1>{isLogged ? 'Hello😃' : 'this is spotify'}</h1>
       <button type="button" onClick={handleLogin}>
         login to spotify
       </button>
