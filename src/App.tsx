@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import './App.css';
+import SpotifyGetPlaylists from './components/SpotifyGetPlaylist/SpotifyGetPlaylist';
 
 function App() {
   const CLIENT_ID = '30555305475a40f79339071201722545';
@@ -55,6 +56,7 @@ function App() {
       <button type="button" onClick={handleLogin}>
         login to spotify
       </button>
+      <SpotifyGetPlaylists />
     </div>
   );
 }
